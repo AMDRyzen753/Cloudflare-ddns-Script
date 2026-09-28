@@ -1,0 +1,10 @@
+{
+  "api_token": "your_api_token",
+  "zone_id": "",
+  "records": ["home.example.com"],
+  "ipv4": true,
+  "ipv6": false,
+  "interval": 300,
+  "ttl": 1,
+  "create_missing": false
+}

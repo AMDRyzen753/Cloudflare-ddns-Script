@@ -1,0 +1,19 @@
+[Unit]
+Description=Cloudflare DDNS Updater
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+# Put CF_API_TOKEN, CF_RECORDS etc. in this file (chmod 600).
+EnvironmentFile=/etc/cloudflare-ddns.env
+ExecStart=/usr/bin/python3 /opt/cloudflare-ddns/cloudflare-ddns-updater.py --quiet
+Restart=on-failure
+RestartSec=30
+DynamicUser=yes
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+
+[Install]
+WantedBy=multi-user.target
